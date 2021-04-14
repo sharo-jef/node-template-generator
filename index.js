@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process';
-import { rmdirSync } from 'fs';
+import { rmdirSync, readFileSync, writeFileSync } from 'fs';
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -28,3 +28,7 @@ if (argv.init) {
     execSync('git init');
 }
 execSync('npm i');
+
+const p = JSON.parse(readFileSync('package.json', 'utf-8'));
+p.name = process.cwd().split(/\/|\\\\/g).pop();
+writeFileSync('package.json', JSON.stringify(p, null, 4));

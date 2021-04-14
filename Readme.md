@@ -7,5 +7,7 @@ npm i -g github:sharo-jef/node-template-generator
 
 ## Usage
 ```bash
+mkdir <workdir>
+cd <workdir>
 nt
 ```
