@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { execSync } from 'child_process';
+import { rmdirSync } from 'fs';
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -20,7 +21,7 @@ const argv = yargs(hideBin(process.argv))
 
 execSync('git clone https://github.com/sharo-jef/node-template .');
 if (argv.remove) {
-    execSync('rm -rf .git');
+    rmdirSync('.git', { recursive: true });
 }
 if (argv.init) {
     execSync('rm -rf .git');
