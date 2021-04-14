@@ -30,5 +30,5 @@ if (argv.init) {
 execSync('npm i');
 
 const p = JSON.parse(readFileSync('package.json', 'utf-8'));
-p.name = process.cwd().split(/\/|\\\\/g).pop();
+p.name = process.cwd().split(/\/|\\/g).pop();
 writeFileSync('package.json', JSON.stringify(p, null, 4));
