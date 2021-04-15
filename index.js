@@ -24,7 +24,7 @@ if (argv.remove) {
     rmdirSync('.git', { recursive: true });
 }
 if (argv.init) {
-    execSync('rm -rf .git');
+    rmdirSync('.git', { recursive: true });
     execSync('git init');
 }
 execSync('npm i');
