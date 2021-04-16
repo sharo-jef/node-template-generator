@@ -7,11 +7,6 @@ import { hideBin } from 'yargs/helpers';
 
 const argv = yargs(hideBin(process.argv))
     .locale('en')
-    .option('remove', {
-        alias: ['r'],
-        type: 'boolean',
-        description: 'Remove .git folder',
-    })
     .option('init', {
         alias: ['i'],
         type: 'boolean',
@@ -20,11 +15,10 @@ const argv = yargs(hideBin(process.argv))
     .argv;
 
 execSync('git clone https://github.com/sharo-jef/node-template .');
-if (argv.remove) {
+try {
     rmdirSync('.git', { recursive: true });
-}
+} catch {}
 if (argv.init) {
-    rmdirSync('.git', { recursive: true });
     execSync('git init');
 }
 execSync('npm i');
