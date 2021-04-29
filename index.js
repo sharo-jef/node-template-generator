@@ -14,6 +14,9 @@ const argv = yargs(hideBin(process.argv))
     })
     .argv;
 
+try {
+    rmdirSync('.git', { recursive: true });
+} catch {}
 execSync('git clone https://github.com/sharo-jef/node-template .');
 try {
     rmdirSync('.git', { recursive: true });
