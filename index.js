@@ -21,7 +21,7 @@ try {
 }
 execSync('git clone https://github.com/sharo-jef/node-template ./tmp');
 try {
-    rmSync('./.git', { recursive: true, force: true });
+    rmSync('./tmp/.git', { recursive: true, force: true });
     readdirSync('./tmp')
         .forEach(file => renameSync(`./tmp/${file}`, `./${file}`));
     rmSync('./tmp', { recursive: true, force: true });
